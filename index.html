@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>An Introduction to Exploratory Data Analyses for Biologists</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 61px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+
+.section h2 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h3 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h4 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h5 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h6 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">YorkU.BioStats.2019</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">info</a>
+</li>
+<li>
+  <a href="Analysis.Fundamental//Intro.html">Fundamentals</a>
+</li>
+<li>
+  <a href="Univariate//index.html">Univariate</a>
+</li>
+<li>
+  <a href="Indices//indices.html">Multivariate</a>
+</li>
+<li>
+  <a href="Ordinations/ordinations.html">Ordinations</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">An Introduction to Exploratory Data Analyses for Biologists</h1>
+<h4 class="date"><em>October 2019</em></h4>
+
+</div>
+
+
+<div style="width:500px; height=350px">
+<div class="figure">
+<img src="images/mainpage.jpg" />
+
+</div>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th><a href="https://www.yorku.ca/index.html">York University</a></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>October 8th, 2019</td>
+<td><strong>Instructor</strong>: <a href="http://www.filazzola.info">Alex Filazzola</a></td>
+</tr>
+<tr class="even">
+<td>12:00 - 2:00 pm</td>
+<td><strong>Co-instructors</strong>: TBD</td>
+</tr>
+</tbody>
+</table>
+<div id="general-information" class="section level2">
+<h2>General Information</h2>
+<p>Biologists cover a diverse set of disciplines (e.g. ecology, evolution, cell biology) and are thus expected to know a larger range of statistics. However, knowledge of the appropriate statistic test to answer a biological question can be a major limitation for researchers. This workshop is an introduction to the different methods and statistical approaches to analyzing data in all disciplines of biology. The workshop will focus on how to match the available data to possible analyses. I will discuss relevant analyses when there are multiple response variables, multiple predictors, and examples of presenting interactions (both statistical and biological). I will also discuss graphical representation of results and data manipulation. No prior knowledge is necessary, but some basic understanding of the R environment will make the workshop more relevant and useful. The goal of this workshop will be to provide a glossary of potential analyses that will assist understanding and presenting biological data.</p>
+<p><strong>Who</strong>: The course is aimed at R beginners to intermediate analysts. Some previous knowledge of R would be useful.</p>
+<p><strong>Where</strong>: York univeristy</p>
+<p><strong>Requirements</strong>: Participants should bring a laptop with a Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) with administrative privileges. If you want to work along during tutorial, you must have R studio installed on your own computer (See below for instructions). However, if you prefer to watch, you are welcome to attend because all examples will be presented via a projector in the classroom.</p>
+<p><strong>Contact</strong>: Please contact <a href="mailto:alex.filazzola@outlook.com">alex.filazzola@outlook.com</a> for more information.</p>
+</div>
+<div id="schedule" class="section level2">
+<h2>Schedule</h2>
+<p><a href="https://docs.google.com/document/d/1len4qcM-EkEMOl0NuNROyqlqMruqg4B4TZm4OS0NPoQ/edit">Live Notepad</a></p>
+<table>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12:00</td>
+<td>Meet &amp; greet. Test software</td>
+</tr>
+<tr class="even">
+<td>12:05</td>
+<td><a href="Analysis.Fundamental//Intro.html">Analysis Fundamentals</a></td>
+</tr>
+<tr class="odd">
+<td>12:30</td>
+<td><a href="Univariate//index.html">Univariate Stats</a></td>
+</tr>
+<tr class="even">
+<td>1:00</td>
+<td><em>quick break</em></td>
+</tr>
+<tr class="odd">
+<td>1:10</td>
+<td><a href="Indices//indices.html">Multivariate analyses</a></td>
+</tr>
+<tr class="even">
+<td>1:30</td>
+<td><a href="Ordinations//ordinations.html">Ordinations</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="software" class="section level2">
+<h2>Software</h2>
+<div id="r" class="section level4">
+<h4>R</h4>
+<p><a href="http://www.r-project.org/">R</a> is a programming language that is especially powerful for data exploration, visualization, and statistical analysis. To interact with R, we use <a href="http://www.rstudio.com/">RStudio</a>.</p>
+<table style="width:67%;">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Windows</th>
+<th>Mac OS X</th>
+<th>Linux</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Install R by downloading and running <a href="http://cran.r-project.org/bin/windows/base/release.htm">this .exe</a> file from <a href="http://cran.r-project.org/index.html">CRAN</a>. Please also install the <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.</td>
+<td>Install R by downloading and running <a href="http://cran.r-project.org/bin/macosx/R-latest.pkg">this .pkg</a> file from <a href="http://cran.r-project.org/index.html">CRAN</a>. Please also install the <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.</td>
+<td>You can download the binary files for your distribution from <a href="http://cran.r-project.org/index.html">CRAN</a>. Please also install the <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="packages" class="section level4">
+<h4>Packages</h4>
+<p>Please install the <code>LearnCommAnalysis</code> package before attending. This package contains all the datasets, packages, and functions that will be used in the workshop. The package is available through Github and thus must be installed using <code>devtools</code> package. If you do not have <code>devtools</code>, please install that first before running the command below. There are multiple packages that are installed along-side this package. Therefore, the installation can take some time and could be prone to error. Please do this prior to attending to save time and troubleshoot errors. The most common error is that not all dependencies (i.e. packages that are dependent on other packages) were installed. Read the error message, and if this is an issue, install the package that is missing.</p>
+<pre class="r"><code>library(devtools)
+install_github(&quot;afilazzola/LearnCommAnalysis&quot;)
+
+## Load package
+library(LearnCommAnalysis)</code></pre>
+</div>
+</div>
+<div id="other-workshops" class="section level2">
+<h2>Other workshops</h2>
+<p>If you enjoyed this workshop and were interested in learning more, I also run a workshops on <a href="https://afilazzola.github.io/YorkU.GLM.2017-04-28/">R-basics and Introduction to Generalized Linear Modelling (GLM)</a>, <a href="https://afilazzola.github.io/UoA.GithubWorkshop.2018/">Using Github for Scientific Reproducibility</a>, and a short introduction on using <a href="https://afilazzola.github.io/Functions.workshop.YorkU2017/">Functions in R</a>.</p>
+<p>You can find similar style workshops, usually that are longer and go into more detail, with <a href="https://software-carpentry.org/">Software Carpentry</a>. They have teachers available globally and cover all forms of programming beyond R.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

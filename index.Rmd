@@ -4,10 +4,6 @@ date: "October 2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 <div style="width:500px; height=350px">
 ![](images/mainpage.jpg)
 </div>
