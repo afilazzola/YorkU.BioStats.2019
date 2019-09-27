@@ -1,0 +1,6 @@
+name: "YorkU.BioStats.2019"
+navbar:
+  title: "YorkU.BioStats.2019"
+  left:
+    - text: "Home"
+      href: index.html
