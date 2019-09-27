@@ -2,5 +2,17 @@ name: "YorkU.BioStats.2019"
 navbar:
   title: "YorkU.BioStats.2019"
   left:
-    - text: "Home"
+    - text: "info"
       href: index.html
+    - text: "Fundamentals"
+      href: Analysis.Fundamental//Intro.html
+    - text: "Univariate"
+      href: Univariate//index.html
+    - text: "Multivariate"
+      href: Indices//indices.html
+    - text: "Ordinations"
+      href: Ordinations/ordinations.html 
+output_dir: "."
+output:
+  html_document:
+    theme: sandstone
