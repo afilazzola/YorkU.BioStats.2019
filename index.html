@@ -93,14 +93,8 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
-.html-widget {
-  margin-bottom: 20px;
-}
 button.code-folding-btn:focus {
   outline: none;
-}
-summary {
-  display: list-item;
 }
 </style>
 
@@ -116,6 +110,7 @@ body {
   padding-top: 66px;
   margin-top: -66px;
 }
+
 .section h2 {
   padding-top: 66px;
   margin-top: -66px;
@@ -135,43 +130,6 @@ body {
 .section h6 {
   padding-top: 66px;
   margin-top: -66px;
-}
-.dropdown-submenu {
-  position: relative;
-}
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-  display: block;
-}
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
-}
-.dropdown-submenu.pull-left {
-  float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -193,77 +151,18 @@ $(document).ready(function () {
 });
 </script>
 
+
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
 </script>
 
 <!-- code folding -->
+
 
 
 
@@ -438,8 +337,16 @@ div.tocify {
 <p>Biologists cover a diverse set of disciplines (e.g. ecology, evolution, cell biology) and are thus expected to know a larger range of statistics. However, knowledge of the appropriate statistic test to answer a biological question can be a major limitation for researchers. This workshop is an introduction to the different methods and statistical approaches to analyzing data in all disciplines of biology. The workshop will focus on how to match the available data to possible analyses. I will discuss relevant analyses when there are multiple response variables, multiple predictors, and examples of presenting interactions (both statistical and biological). I will also discuss graphical representation of results and data manipulation. No prior knowledge is necessary, but some basic understanding of the R environment will make the workshop more relevant and useful. The goal of this workshop will be to provide a glossary of potential analyses that will assist understanding and presenting biological data.</p>
 <p><strong>Who</strong>: The course is aimed at R beginners to intermediate analysts. Some previous knowledge of R would be useful.</p>
 <p><strong>Where</strong>: York univeristy</p>
+<p><strong>What else?</strong>: If learning biostats isn’t enough of a draw for you, we will be providing free food!!</p>
 <p><strong>Requirements</strong>: Participants should bring a laptop with a Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) with administrative privileges. If you want to work along during tutorial, you must have R studio installed on your own computer (See below for instructions). However, if you prefer to watch, you are welcome to attend because all examples will be presented via a projector in the classroom.</p>
 <p><strong>Contact</strong>: Please contact <a href="mailto:alex.filazzola@outlook.com">alex.filazzola@outlook.com</a> for more information.</p>
+<div style="width:195px; text-align:center;">
+<iframe src="https://www.eventbrite.com/countdown-widget?eid=74498897207" frameborder="0" height="332" width="195" marginheight="0" marginwidth="0" scrolling="no" allowtransparency="true">
+</iframe>
+<div style="font-family:Helvetica, Arial; font-size:12px; padding:10px 0 5px; margin:2px; width:195px; text-align:center;">
+<a class="powered-by-eb" style="color: #ADB0B6; text-decoration: none;" target="_blank" href="http://www.eventbrite.com/">Powered by Eventbrite</a>
+</div>
+</div>
 </div>
 <div id="schedule" class="section level2">
 <h2>Schedule</h2>
