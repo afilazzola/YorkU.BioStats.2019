@@ -1,7 +1,11 @@
 ---
 title: "An Introduction to Exploratory Data Analyses for Biologists"
 date: "October 2019"
-output: html_document
+output: 
+  html_document:
+    theme: sandstone
+    toc: true
+    toc_float: true
 ---
 
 <div style="width:500px; height=350px">
