@@ -15,7 +15,7 @@ output:
 [York University](https://www.yorku.ca/index.html) | 
 ----------------|-----------------------------------
 October 8th, 2019   | **Instructor**: [Alex Filazzola](http://www.filazzola.info)
-12:00 - 2:00 pm   | **Co-instructors**: TBD
+12:15 - 2:00 pm   | **306 Lumbers**
 
 ## General Information
 
@@ -24,7 +24,7 @@ Biologists cover a diverse set of disciplines (e.g. ecology, evolution, cell bio
 
 **Who**: The course is aimed at R beginners to intermediate analysts. Some previous knowledge of R would be useful.
 
-**Where**: York univeristy
+**Where**: York University, 306 Lumbers
 
 **What else?**: If learning biostats isn't enough of a draw for you, we will be providing free food!!
 
@@ -40,12 +40,12 @@ Biologists cover a diverse set of disciplines (e.g. ecology, evolution, cell bio
 
 Time   | Goal
 -------|------------
-12:00   | Meet & greet. Test software
-12:05  | [Analysis Fundamentals](Analysis.Fundamental//Intro.html)
-12:30 | [Univariate Stats](Univariate//index.html)
-1:00  | *quick break*
-1:10 | [Multivariate analyses](Indices//indices.html)
-1:30 | [Ordinations](Ordinations//ordinations.html)
+12:15   | Meet & greet. Test software
+12:30  | [Analysis Fundamentals](Analysis.Fundamental//Intro.html)
+12:35 | [Univariate Stats](Univariate//index.html)
+1:00 | [Multivariate analyses](Indices//indices.html)
+1:30 | [Graphics]
+1:55 | De-brief
 
 
 ## Software
