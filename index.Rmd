@@ -1,5 +1,5 @@
 ---
-title: "An Introduction to Exploratory Data Analyses for Biologists"
+title: "An Introduction to Statistical Analyses for Biologists"
 date: "October 2019"
 output: 
   html_document:
