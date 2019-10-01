@@ -77,3 +77,8 @@ library(LearnCommAnalysis)
 If you enjoyed this workshop and were interested in learning more, I also run a workshops on [R-basics and Introduction to Generalized Linear Modelling (GLM)](https://afilazzola.github.io/YorkU.GLM.2017-04-28/), [Using Github for Scientific Reproducibility](https://afilazzola.github.io/UoA.GithubWorkshop.2018/), and a short introduction on using [Functions in R](https://afilazzola.github.io/Functions.workshop.YorkU2017/). 
 
 You can find similar style workshops, usually that are longer and go into more detail, with [Software Carpentry](https://software-carpentry.org/). They have teachers available globally and cover all forms of programming beyond R. 
+
+
+<img src="images/YorkUlogo.jpg" width="200"/>
+<img src="images/UoA.png" width="250"/>
+<img src="images/FilazzolaLab.png" width="200"/>
