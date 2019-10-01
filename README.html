@@ -11,7 +11,7 @@
 
 
 
-<title></title>
+<title>An Introduction to Exploratory Data Analyses for Biologists</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -163,6 +166,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -204,17 +302,137 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">An Introduction to Exploratory Data Analyses for Biologists</h1>
+<h4 class="date"><em>October 2019</em></h4>
 
 </div>
 
 
-<div id="yorku.biostats.2019" class="section level1">
-<h1>YorkU.BioStats.2019</h1>
-<p>An introduction to a diverse set of statistics that are used in biology using R.</p>
+<div style="width:500px; height=350px">
+<div class="figure">
+<img src="images/mainpage.jpg" />
+
+</div>
+</div>
+<table>
+<thead>
+<tr class="header">
+<th><a href="https://www.yorku.ca/index.html">York University</a></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>October 8th, 2019</td>
+<td><strong>Instructor</strong>: <a href="http://www.filazzola.info">Alex Filazzola</a></td>
+</tr>
+<tr class="even">
+<td>12:15 - 2:00 pm</td>
+<td><strong>306 Lumbers</strong></td>
+</tr>
+</tbody>
+</table>
+<div id="general-information" class="section level2">
+<h2>General Information</h2>
+<p>Biologists cover a diverse set of disciplines (e.g. ecology, evolution, cell biology) and are thus expected to know a larger range of statistics. However, knowledge of the appropriate statistic test to answer a biological question can be a major limitation for researchers. This workshop is an introduction to the different methods and statistical approaches to analyzing data in all disciplines of biology. The workshop will focus on how to match the available data to possible analyses. I will discuss relevant analyses when there are multiple response variables, multiple predictors, and examples of presenting interactions (both statistical and biological). I will also discuss graphical representation of results and data manipulation. No prior knowledge is necessary, but some basic understanding of the R environment will make the workshop more relevant and useful. The goal of this workshop will be to provide a glossary of potential analyses that will assist understanding and presenting biological data.</p>
+<p><strong>Who</strong>: The course is aimed at R beginners to intermediate analysts. Some previous knowledge of R would be useful.</p>
+<p><strong>Where</strong>: York University, 306 Lumbers</p>
+<p><strong>What else?</strong>: If learning biostats isn’t enough of a draw for you, we will be providing free food!!</p>
+<p><strong>Requirements</strong>: Participants should bring a laptop with a Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) with administrative privileges. If you want to work along during tutorial, you must have R studio installed on your own computer (See below for instructions). However, if you prefer to watch, you are welcome to attend because all examples will be presented via a projector in the classroom.</p>
+<p><strong>Contact</strong>: Please contact <a href="mailto:alex.filazzola@outlook.com">alex.filazzola@outlook.com</a> for more information.</p>
+<div style="width:195px; text-align:center;">
+<iframe src="https://www.eventbrite.com/countdown-widget?eid=74498897207" frameborder="0" height="332" width="195" marginheight="0" marginwidth="0" scrolling="no" allowtransparency="true">
+</iframe>
+<div style="font-family:Helvetica, Arial; font-size:12px; padding:10px 0 5px; margin:2px; width:195px; text-align:center;">
+<a class="powered-by-eb" style="color: #ADB0B6; text-decoration: none;" target="_blank" href="http://www.eventbrite.com/">Powered by Eventbrite</a>
+</div>
+</div>
+</div>
+<div id="schedule" class="section level2">
+<h2>Schedule</h2>
+<p><a href="https://docs.google.com/document/d/1len4qcM-EkEMOl0NuNROyqlqMruqg4B4TZm4OS0NPoQ/edit">Live Notepad</a></p>
+<table>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12:15</td>
+<td>Meet &amp; greet. Test software</td>
+</tr>
+<tr class="even">
+<td>12:30</td>
+<td><a href="Analysis.Fundamental//Intro.html">Analysis Fundamentals</a></td>
+</tr>
+<tr class="odd">
+<td>12:35</td>
+<td><a href="Univariate//index.html">Univariate Stats</a></td>
+</tr>
+<tr class="even">
+<td>1:00</td>
+<td><a href="Indices//indices.html">Multivariate analyses</a></td>
+</tr>
+<tr class="odd">
+<td>1:30</td>
+<td>[Graphics]</td>
+</tr>
+<tr class="even">
+<td>1:55</td>
+<td>De-brief</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="software" class="section level2">
+<h2>Software</h2>
+<div id="r" class="section level4">
+<h4>R</h4>
+<p><a href="http://www.r-project.org/">R</a> is a programming language that is especially powerful for data exploration, visualization, and statistical analysis. To interact with R, we use <a href="http://www.rstudio.com/">RStudio</a>.</p>
+<table style="width:67%;">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Windows</th>
+<th>Mac OS X</th>
+<th>Linux</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Install R by downloading and running <a href="http://cran.r-project.org/bin/windows/base/release.htm">this .exe</a> file from <a href="http://cran.r-project.org/index.html">CRAN</a>. Please also install the <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.</td>
+<td>Install R by downloading and running <a href="http://cran.r-project.org/bin/macosx/R-latest.pkg">this .pkg</a> file from <a href="http://cran.r-project.org/index.html">CRAN</a>. Please also install the <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a>.</td>
+<td>You can download the binary files for your distribution from <a href="http://cran.r-project.org/index.html">CRAN</a>. Please also install the <a href="http://www.rstudio.com/ide/download/desktop">RStudio IDE</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="packages" class="section level4">
+<h4>Packages</h4>
+<p>Please install the <code>LearnCommAnalysis</code> package before attending. This package contains all the datasets, packages, and functions that will be used in the workshop. The package is available through Github and thus must be installed using <code>devtools</code> package. If you do not have <code>devtools</code>, please install that first before running the command below. There are multiple packages that are installed along-side this package. Therefore, the installation can take some time and could be prone to error. Please do this prior to attending to save time and troubleshoot errors. The most common error is that not all dependencies (i.e. packages that are dependent on other packages) were installed. Read the error message, and if this is an issue, install the package that is missing.</p>
+<pre class="r"><code>library(devtools)
+install_github(&quot;afilazzola/LearnCommAnalysis&quot;)
+
+## Load package
+library(LearnCommAnalysis)</code></pre>
+</div>
+</div>
+<div id="other-workshops" class="section level2">
+<h2>Other workshops</h2>
+<p>If you enjoyed this workshop and were interested in learning more, I also run a workshops on <a href="https://afilazzola.github.io/YorkU.GLM.2017-04-28/">R-basics and Introduction to Generalized Linear Modelling (GLM)</a>, <a href="https://afilazzola.github.io/UoA.GithubWorkshop.2018/">Using Github for Scientific Reproducibility</a>, and a short introduction on using <a href="https://afilazzola.github.io/Functions.workshop.YorkU2017/">Functions in R</a>.</p>
+<p>You can find similar style workshops, usually that are longer and go into more detail, with <a href="https://software-carpentry.org/">Software Carpentry</a>. They have teachers available globally and cover all forms of programming beyond R.</p>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
