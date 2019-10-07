@@ -1,7 +1,7 @@
 ---
 title: Ordinations
 author: "Alex Filazzola"
-date: "Nov 2018"
+date: "Oct 2019"
 output:
   html_document:
     theme: sandstone
@@ -11,13 +11,13 @@ output:
 
 ![](comic.png)
 
-### 4.0 What are ordinations
+### 3.0 What are ordinations
 
 An ordination is a data reduction technique that uses significantly more complicated math than the above examples. The basic premise is that an ordination fits a linearly uncorrelated components through mulitvariate data to maximize the most variation explained. Similar to fitting a line-of-best-fit through a cloud of data points. There are different approaches both among ordinations and within ordinations, but conceptually this is what is occurring. Ordinations can generally be separated into three categories: unconstrained (indirect gradient analysis), constrained (direct gradient analysis), and NMDS. [This website](http://ordination.okstate.edu/overview.htm) does an excellent job breaking down all the different examples of each with a short description of what is occuring. 
 
 Technically, NMDS is a type of unconstrained ordination. However, I have intentionally left it in a third category because it does something very different. NMDS calculates rank order and is a non-parametric version of other ordinations. Similar to how Kruskal-Wallis is the rank order equivalent of ANOVA. NMDS is hugely flexible and versatile, but is often criticised for not matching a distribution (again, like how Kruskal-Wallis does not follow a dsitribution) and the output may be suggested as correct, when it is not the optimal representation of data. The ecological community continues to debate this and for this exercise I will focus on principal component analysis (PCA) and redundancy analysis (RDA). However, for those interested in a great tutorial on NMDS check [here](https://jonlefcheck.net/2012/10/24/nmds-tutorial-in-r/).
 
-### 4.1 PCA and CCA
+### 3.1 PCA and CCA
 
 PCA is a indirect gradient analysis. Indirect, in that we are trying to determine a principal component (line of best fit) through the data that explains the most variation but not  attribute that component to anything. We use the `dune` dataset within vegan as an example. 
 
@@ -82,7 +82,7 @@ Our number is in between suggesting that both linear and unimodal approximations
 
 Illustration of the rule how to select whether to use linear ordination methods (like PCA or RDA) or unimodal (CA, DCA or CCA) on the data. Upper diagram shows simulated community structured by a single environmental gradient, with number of species response curves. The diagram below shows the relationship between the length of the gradient sampled in the simulated community on the //x/-axis (in arbitrary units), and length of the first DCA ordination axies (in units of S.D.). The dataset which according to DCA is rather homogeneous (< 3 S.D.) has environmental gradient up to 2000 units long; the longer gradient results into heterogeneous dataset for which linear methods are not suitable. [OP of figure  & caption](https://www.davidzeleny.net/anadat-r/doku.php/en:ordination)
 
-### 4.2 Testing the gradient
+### 3.2 Testing the gradient
 
 There are two common uses of an ordination. The first is to observe trends in the similarities among sites and species. The second is to utilize the data reduction technique to correlate the gradient among species and sites to other gradients. 
 
@@ -106,7 +106,7 @@ cor(score.vals, varechem)
 ```
 
 
-### 4.3 Redundancy analysis
+### 3.3 Redundancy analysis
 
 Finally let's do a contrained ordination, RDA. A constrained ordination is a direct graident analysis because you suggesting what the composition of the components are that describe the data. Instead of the PC1 representing the x-axis, we will have RDA1 that is a combination of the predictor variables that we include. We can take a look at what this means. 
 
@@ -129,7 +129,7 @@ There are two quick ways to determine if the RDA accurately describes the data. 
 
 The p value being close to 0.05 and the relatively high level of redundancy suggest that these nutrient variables are not accurately explaining all the variation in our dataset. When we look at the plot, we can see that RDA1 is comprised mostly of the metals. RDA2 instead appears to be described by other nutrients such as nitrogen and phosphorus. As it stands now though, we cannot present this dataset because of the poor explanation of variation and high p.value. 
 
-### 4.4 Cluster Analysis
+### 3.4 Cluster Analysis
 
 A cluster analysis groups together different sites or plots, typically by dissimiliarity. One of the more widely accepted methods is using the squared version of Ward's method. Ward's method uses a minimum variance criterion that minimizes the total within-cluster variance (see for more  [Murtagh and Legendre 2014](https://link.springer.com/article/10.1007/s00357-014-9161-z)). 
 

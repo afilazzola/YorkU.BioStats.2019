@@ -44,7 +44,7 @@ Time   | Goal
 12:30  | [Analysis Fundamentals](Analysis.Fundamental//Intro.html)
 12:35 | [Univariate Stats](Univariate//index.html)
 1:00 | [Multivariate analyses](Indices//ordinations.html)
-1:30 | [Graphics]
+1:30 | [Graphics](graphics//graphics.html)
 1:55 | De-brief
 
 

@@ -10,4 +10,6 @@ navbar:
       href: Univariate//index.html
     - text: "Multivariate"
       href: Ordinations/ordinations.html 
+    - text: "Graphics"
+      href: graphics//graphics.html
 output_dir: "."
