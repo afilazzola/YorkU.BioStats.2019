@@ -100,13 +100,13 @@ Here we see that degrees freedom from the model (i.e. n-1), the residual devianc
 To see which drug is most effective, we need to conduct pairwise comparisons. There are many packages that are available in R to do this. One of the easier ones to work with is `lsmeans`. 
 
 ```{r}
-library(lsmeans)
+library(emmeans)
 ```
 
 The syntax for conducting a pairwise comparison is model, type of comparison (in this case pairwise), and lastly adjustment type. Tukey is a common technique that is also used for ANOVAs. 
 
 ```{r}
-lsmeans(m2, pairwise~predictor, adjust="tukey") ##conduct pairwise comparisons on predictor
+emmeans(m2, pairwise~predictor, adjust="tukey") ##conduct pairwise comparisons on predictor
 ```
 
 The output of this function provides a lot of information including the model statistics for each of the groups. However, the most relative content now to our question is the p.value to determine which groups were different from one another and the estimate to see in what direction. Here, we can see that the only group that is significantly different is drug3. This drug was more effective than a control and drug1, although it had a similar cure rate as drug2. This is a typical workflow for a GLM that begins by testing the effect of the predictor and is followed by a pairwise comparison to determine where the significance can be attributed to. 

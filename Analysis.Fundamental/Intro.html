@@ -94,8 +94,14 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -104,14 +110,74 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -229,16 +295,16 @@ div.tocify {
 </div>
 <div id="analysis-fundamentals" class="section level3">
 <h3>1.0 Analysis Fundamentals</h3>
-<p><strong>The Challenge:</strong> - Ecologists are generally expected to know a larger range of statistics relative to other fields in biology. In many fields, datasets are large enough that concerns of normality are non-existant or certain disciplines have widely accepted simpler analyses ignoring important assumptions. Ecology is not one of those fields and quite the contrary, ecologists often hold peers to a high standard of statistical quality. Add to this that ecologist must consider an ecosystems’ worth of variables, the requirement for knowledge in statistics is high. Luckily for us, more resources are available that provide how-to guides on different analyses and conducting these analyses are becoming increasingly easier. This workshop is here to provide at least a passing knowledge of the core analyses that are expected of ecologist.</p>
+<p><strong>The Challenge:</strong> - Biologists are generally expected to know a larger range of statistics relative to other fields in science. In many fields, datasets are large enough that concerns of normality are non-existant or certain disciplines have widely accepted simpler analyses ignoring important assumptions. Biology is not one of those fields and quite the contrary, biologists often hold peers to a high standard of statistical quality. Luckily for us, more resources are available that provide how-to guides on different analyses and conducting these analyses are becoming increasingly easier. This workshop is here to provide at least a passing knowledge of the core analyses that are expected of biologists.</p>
 <p><strong>The Mantra:</strong> “My analyses must match my predictions”. There are loads of different analyses that can be conduct and over time its becomes easy to think of you computer as a trend-seeking machine. The important thing to remember is that you originally started out with a research question, that developed into a hypothesis with predictions. Your analyses are to answer that research question and must connect directly with your predictions. Becareful if you re-write your project around trends you found that were significant in your analyses. There are many different reasons why this is a bad idea including (but are not limited to): leaves your original question unanswered, could produce errors in design that were not originally considered, or it makes your writing come across as disjunct.</p>
-<p><strong>The Basics:</strong> Data analysis generally has three steps that are data input, data manipulation, and data analysis. Although the analysis component always gets all the attention, including in this workshop, the first two are actually very important. Formatting data for the right analysis is a necessary evil. The data structure of an ordination is completely differnt than a linear model. Converting data between these formats can take hours in excel even with an experienced user depending on the size of the dataset. That is why I begin this workshop with some basics in data inputting and manipulation.</p>
+<p><strong>The Basics:</strong> Data managemnet generally has four steps that are: input, manipulation, analysis, and presentation. Although the analysis component always gets all the attention, we will touch upon each of these during the workshop. Formatting data for the right analysis is a necessary evil. The data structure of an ordination is completely different than a linear model. Converting data between these formats can take hours in excel even with an experienced user depending on the size of the dataset. That is why I begin this workshop with some basics in data inputting and manipulation.</p>
 <p>First things first! We will be using different sample data, R functions, and packages throughout this workshop. To simplify things, I have created an R package that has the majority of the tools we need to explore this workshop. To install the package, you will need to install the R package <code>devtools</code>. This can be installed with the commands below.</p>
-<pre class="r"><code>install.packages(&quot;devtools&quot;)</code></pre>
-<p>After that, run the following code to install the package that has all the content for this workshop.</p>
-<pre class="r"><code>library(devtools)
-install_github(&quot;afilazzola/LearnCommAnalysis&quot;, dependencies=TRUE, force=TRUE)
+<pre class="r"><code>install.packages(&quot;devtools&quot;, dependencies=TRUE, force=TRUE)
 
-library(LearnCommAnalysis)</code></pre>
+library(devtools)
+install_github(&quot;afilazzola/LearnCommAnalysis&quot;, dependencies=TRUE, force=TRUE)</code></pre>
+<p>After that, run the following code to install the package that has all the content for this workshop.</p>
+<pre class="r"><code>library(LearnCommAnalysis)</code></pre>
 </div>
 <div id="data-format" class="section level3">
 <h3>1.1 Data format</h3>
@@ -1125,7 +1191,7 @@ data.summary</code></pre>
 
 data.summary</code></pre>
 <pre><code>## # A tibble: 16 x 5
-## # Groups:   Exclosure [?]
+## # Groups:   Exclosure [2]
 ##    Exclosure Species       avg  error     n
 ##    &lt;fct&gt;     &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;
 ##  1 N         Amsinckia  0.0167 0.0167   180
@@ -1136,14 +1202,31 @@ data.summary</code></pre>
 ##  6 N         Hordeum    0.367  0.178    180
 ##  7 N         Marrubium  1.26   0.279    180
 ##  8 N         Schismus  10.7    1.78     180
-##  9 Y         Amsinckia  0.     0.        60
-## 10 Y         Brassica   0.     0.        60
+##  9 Y         Amsinckia  0      0         60
+## 10 Y         Brassica   0      0         60
 ## 11 Y         BromusH    2.58   0.927     60
 ## 12 Y         BromusR   61.4    6.71      60
 ## 13 Y         Erodium    9.55   1.38      60
 ## 14 Y         Hordeum    0.117  0.0827    60
 ## 15 Y         Marrubium  1.13   0.516     60
 ## 16 Y         Schismus  13.6    3.15      60</code></pre>
+<p>In some instances you may not want to summarize your data but instead extract certain information from it. Using the same plant dataset lets say I wanted the species that had the greatest abundance in each plot. This would help me determine what the dominant species is in the ecosystem. We can accomplish this using the <code>slice</code> function that extracts lines of a dataframe based on a condition.</p>
+<pre class="r"><code>data.long %&gt;% group_by(Plot) %&gt;% slice(which.max(Abundance))</code></pre>
+<pre><code>## # A tibble: 120 x 7
+## # Groups:   Plot [120]
+##     Plot Microsite Exclosure Gradient SWC.Peak Species  Abundance
+##    &lt;int&gt; &lt;fct&gt;     &lt;fct&gt;        &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;        &lt;int&gt;
+##  1    17 Shrub     Y                0     12.4 BromusR         62
+##  2    18 Shrub     Y                2      5.8 BromusR         70
+##  3    22 Open      Y                4      9.4 Schismus        61
+##  4    24 Shrub     Y                5      4.8 BromusR         47
+##  5    25 Shrub     N                5      7.6 BromusR         31
+##  6    28 Shrub     N                4     15.4 BromusR         84
+##  7    30 Shrub     N                1      7.3 BromusR         79
+##  8    31 Shrub     N                0      8.4 BromusR         60
+##  9    43 Shrub     N                2     10.2 BromusR         67
+## 10    46 Shrub     Y                3      6.2 BromusR        221
+## # ... with 110 more rows</code></pre>
 </div>
 
 

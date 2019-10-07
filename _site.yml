@@ -9,7 +9,5 @@ navbar:
     - text: "Univariate"
       href: Univariate//index.html
     - text: "Multivariate"
-      href: Indices//indices.html
-    - text: "Ordinations"
       href: Ordinations/ordinations.html 
 output_dir: "."

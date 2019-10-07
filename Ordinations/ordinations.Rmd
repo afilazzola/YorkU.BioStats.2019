@@ -129,7 +129,7 @@ There are two quick ways to determine if the RDA accurately describes the data. 
 
 The p value being close to 0.05 and the relatively high level of redundancy suggest that these nutrient variables are not accurately explaining all the variation in our dataset. When we look at the plot, we can see that RDA1 is comprised mostly of the metals. RDA2 instead appears to be described by other nutrients such as nitrogen and phosphorus. As it stands now though, we cannot present this dataset because of the poor explanation of variation and high p.value. 
 
-### 4.4 Cluster Analysis revisited
+### 4.4 Cluster Analysis
 
 A cluster analysis groups together different sites or plots, typically by dissimiliarity. One of the more widely accepted methods is using the squared version of Ward's method. Ward's method uses a minimum variance criterion that minimizes the total within-cluster variance (see for more  [Murtagh and Legendre 2014](https://link.springer.com/article/10.1007/s00357-014-9161-z)). 
 
@@ -195,33 +195,3 @@ orditorp(ord, display = "species", cex = 0.7, col = "darkorange3", priority=spp.
 orditorp(ord, display = "sites", cex = 0.7, col = "darkslateblue", air=0.1)
 
 ```
-
-### 4.5 Indiciator species analysis
-
-Indicator species analysis explores statistical significance between particular groups. It is a particularly relevant follow up for ordinations to determine the key species that are driving differences in composition between groups. It can also identify unique species assembalges that are present in a group. 
-
-```{r}
-library(indicspecies)
-
-data(dune.env)
-
-## Compare species assemblages among manure levels
-indval <- multipatt(dune, dune.env$Manure, control=how(nperm=999))
-summary(indval)
-
-
-## Compare species assemblages among management strategies
-indval2 <- multipatt(dune, dune.env$Management, control=how(nperm=999))
-summary(indval2)
-```
-
-Here we can see that the addition of manure results in the presence of two additional species that when manure is missing. Similarly, the different management strategies each form unique assemblages. 
-
-### 4.6 Hack-a-thon practice
-
-Try an example on your own from one of the datasets we looked at earlier. The `multivar` dataset has measured the community composition of different shrub and open microsites along an elevational gradient over multiple years. The research question you are to explore is how does the shrub effect changes in community composition along this elevation gradient. 
-
-```{r}
-head(multivar)
-```
-

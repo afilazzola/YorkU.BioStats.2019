@@ -14,22 +14,24 @@ output:
 
 ### 1.0 Analysis Fundamentals
 
-**The Challenge:** - Ecologists are generally expected to know a larger range of statistics relative to other fields in biology. In many fields, datasets are large enough that concerns of normality are non-existant or certain disciplines have widely accepted simpler analyses ignoring important assumptions. Ecology is not one of those fields and quite the contrary, ecologists often hold peers to a high standard of statistical quality. Add to this that ecologist must consider an ecosystems' worth of variables, the requirement for knowledge in statistics is high. Luckily for us, more resources are available that provide how-to guides on different analyses and conducting these analyses are becoming increasingly easier. This workshop is here to provide at least a passing knowledge of the core analyses that are expected of ecologist.
+**The Challenge:** - Biologists are generally expected to know a larger range of statistics relative to other fields in science. In many fields, datasets are large enough that concerns of normality are non-existant or certain disciplines have widely accepted simpler analyses ignoring important assumptions. Biology is not one of those fields and quite the contrary, biologists often hold peers to a high standard of statistical quality. Luckily for us, more resources are available that provide how-to guides on different analyses and conducting these analyses are becoming increasingly easier. This workshop is here to provide at least a passing knowledge of the core analyses that are expected of biologists.
 
 **The Mantra:** "My analyses must match my predictions". There are loads of different analyses that can be conduct and over time its becomes easy to think of you computer as a trend-seeking machine. The important thing to remember is that you originally started out with a research question, that developed into a hypothesis with predictions. Your analyses are to answer that research question and must connect directly with your predictions. Becareful if you re-write your project around trends you found that were significant in your analyses. There are many different reasons why this is a bad idea including (but are not limited to): leaves your original question unanswered, could produce errors in design that were not originally considered, or it makes your writing come across as disjunct.
 
-**The Basics:** Data analysis generally has three steps that are data input, data manipulation, and data analysis. Although the analysis component always gets all the attention, including in this workshop, the first two are actually very important. Formatting data for the right analysis is a necessary evil. The data structure of an ordination is completely differnt than a linear model. Converting data between these formats can take hours in excel even with an experienced user depending on the size of the dataset. That is why I begin this workshop with some basics in data inputting and manipulation.
+**The Basics:** Data managemnet generally has four steps that are: input,  manipulation, analysis, and presentation. Although the analysis component always gets all the attention, we will touch upon each of these during the workshop. Formatting data for the right analysis is a necessary evil. The data structure of an ordination is completely different than a linear model. Converting data between these formats can take hours in excel even with an experienced user depending on the size of the dataset. That is why I begin this workshop with some basics in data inputting and manipulation.
 
 First things first! We will be using different sample data, R functions, and packages throughout this workshop. To simplify things, I have created an R package that has the majority of the tools we need to explore this workshop. To install the package, you will need to install the R package `devtools`. This can be installed with the commands below.
 
 ```{r eval=FALSE}
-install.packages("devtools")
+install.packages("devtools", dependencies=TRUE, force=TRUE)
+
+library(devtools)
+install_github("afilazzola/LearnCommAnalysis", dependencies=TRUE, force=TRUE)
+
 ```
 
 After that, run the following code to install the package that has all the content for this workshop.
 ```{r, warning=FALSE, message=FALSE}
-library(devtools)
-install_github("afilazzola/LearnCommAnalysis", dependencies=TRUE, force=TRUE)
 
 library(LearnCommAnalysis)
 
@@ -175,7 +177,11 @@ data.summary
 ```
 
 
+In some instances you may not want to summarize your data but instead extract certain information from it. Using the same plant dataset lets say I wanted the species that had the greatest abundance in each plot. This would help me determine what the dominant species is in the ecosystem. We can accomplish this using the `slice` function that extracts lines of a dataframe based on a condition. 
 
+```{r}
 
+data.long %>% group_by(Plot) %>% slice(which.max(Abundance))
 
+```
 
