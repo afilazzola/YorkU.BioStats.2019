@@ -121,7 +121,7 @@ data(practice)
 kable(practice[1:20,])  ## select only the first 20 rows 
 
 
-## practice <- read.csv("https://raw.githubusercontent.com/afilazzola/YorkU.BioStats.2019/master/data/practice.csv")
+practice <- read.csv("https://raw.githubusercontent.com/afilazzola/YorkU.BioStats.2019/master/data/practice.csv")
 ```
 
 This data is ready for univariate analyses to examine the effects of the treatments on each species abundance. What if we wanted to do an ordination on this data? Well first we need to spread it using `dplyr` and `tidyr`packages.
