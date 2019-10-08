@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ![](regression.png)
 
-A univariate analysis is a statistical test that compares a response variable to a series of predictors. There are many different versions inclduing linear regression, ANOVAs, ANCOVAs, and GLMs. We are going to briefly touch upon the math and then go into the differences between these models. 
+A univariate analysis is a statistical test that compares a response variable to a series of predictors. There are many different versions including linear regression, ANOVAs, ANCOVAs, and GLMs. We are going to briefly touch upon the math and then go into the differences between these models. 
 
 First, let's touch upon the math behind linear regressions. The form for a linear regression is as follows:
 
