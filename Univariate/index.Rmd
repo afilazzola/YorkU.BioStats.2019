@@ -75,6 +75,8 @@ This is an example of a logistic regression that is a member of the GLM family f
 ```{r}
 ##load data
 head(drug.trial)
+
+## drug.trial <- read.csv("https://raw.githubusercontent.com/afilazzola/YorkU.BioStats.2019/master/data/drug.trial.csv")
 ```
 
 The formula has the same syntax as the LM shown above. The response is followed by the tilda and the predictors. Here, we also specify where the data is coming from. In this case it is coming from the drug.trial data frame we created. Lastly, the main nuance of using the GLM function is the specification of a family. Since our data is binary and follows a binomial distribution, that is what we refer to it as. 
