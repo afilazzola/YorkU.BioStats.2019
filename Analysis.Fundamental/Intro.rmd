@@ -18,7 +18,7 @@ output:
 
 **The Mantra:** "My analyses must match my predictions". There are loads of different analyses that can be conduct and over time its becomes easy to think of you computer as a trend-seeking machine. The important thing to remember is that you originally started out with a research question, that developed into a hypothesis with predictions. Your analyses are to answer that research question and must connect directly with your predictions. Becareful if you re-write your project around trends you found that were significant in your analyses. There are many different reasons why this is a bad idea including (but are not limited to): leaves your original question unanswered, could produce errors in design that were not originally considered, or it makes your writing come across as disjunct.
 
-**The Basics:** Data managemnet generally has four steps that are: input,  manipulation, analysis, and presentation. Although the analysis component always gets all the attention, we will touch upon each of these during the workshop. Formatting data for the right analysis is a necessary evil. The data structure of an ordination is completely different than a linear model. Converting data between these formats can take hours in excel even with an experienced user depending on the size of the dataset. That is why I begin this workshop with some basics in data inputting and manipulation.
+**The Basics:** Data management generally has four steps that are: input,  manipulation, analysis, and presentation. Although the analysis component always gets all the attention, we will touch upon each of these during the workshop. Formatting data for the right analysis is a necessary evil. The data structure of an ordination is completely different than a linear model. Converting data between these formats can take hours in excel even with an experienced user depending on the size of the dataset. That is why I begin this workshop with some basics in data inputting and manipulation.
 
 First things first! We will be using different sample data, R functions, and packages throughout this workshop. To simplify things, I have created an R package that has the majority of the tools we need to explore this workshop. To install the package, you will need to install the R package `devtools`. This can be installed with the commands below.
 
@@ -51,6 +51,8 @@ library(knitr)
 data(samplelong)
 
 kable(samplelong[1:20,1:8])## select only the first 20 rows and 8 columns
+
+## samplelong <- read.csv("https://raw.githubusercontent.com/afilazzola/YorkU.BioStats.2019/master/data/samplelong.csv")
 
 ```
 
